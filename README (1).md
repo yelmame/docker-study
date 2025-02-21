@@ -55,18 +55,31 @@ docker run --tmpfs /app/cache busybox
 #### Creating and Using a Docker Volume
 
   ##### Create a volume
-  `docker volume create myvolume `
+  `
+  bash 
+  docker volume create myvolume 
+  `
   ##### Run a container using the volume
    `
-docker run -d --name mycontainer -v myvolume:/data busybox `
+   bash
+    docker run -d --name mycontainer -v myvolume:/data busybox 
+    `
 
   #### Checking Volumes
-  ` docker volume ls  # List all volumes` 
+  ` 
+  bash 
+  docker volume ls  # List all volumes
+  ` 
 
-  `docker volume inspect myvolume  # Inspect volume details 
+  `
+  bash 
+  docker volume inspect myvolume  # Inspect volume details 
   `
   #### Removing a Volume
-  ` docker volume rm myvolume `
+  ` 
+  bash 
+  docker volume rm myvolume 
+  `
 
 ###   b. Bind Mounts
   - Maps a host directory to a container.
@@ -75,6 +88,7 @@ docker run -d --name mycontainer -v myvolume:/data busybox `
     real-time
   #### Using Bind Mounts
    `
+   bash 
    docker run -d -v /home/user/data:/app/data busybox
    `
 
@@ -92,25 +106,28 @@ docker run -d --name mycontainer -v myvolume:/data busybox `
 
 ## 4. Backing Up and Restoring Data
   ### Backing Up a Volume
-`
-    docker run --rm -v myvolume:/data -v $(pwd):/backup busybox tar -czf /backup/backup.tar.gz -C /data .
-`
+  `
+  bash 
+  docker run --rm -v myvolume:/data -v $(pwd):/backup busybox tar -czf /backup/backup.tar.gz -C /data   .
+  `
   ### Restoring from a Backup
-`
-docker run --rm -v myvolume:/data -v $(pwd):/backup busybox tar -xzf /backup/backup.tar.gz -C /data
-`
+  `
+  bash
+  docker run --rm -v myvolume:/data -v $(pwd):/backup busybox tar -xzf /backup/backup.tar.gz -C /data
+  `
 ## 5. Cleaning Up Unused Storage
 To free up space, remove unused images, containers, and volumes.
 
-`
+  `
+  bash 
   ### Remove all stopped containers
-docker container prune
-# Remove unused images
-docker image prune
+  docker container prune
+  # Remove unused images
+  docker image prune
 
-# Remove all unused volumes
-docker volume prune
-`
+  # Remove all unused volumes
+  docker volume prune
+  `
 ## 6. Best Practices for Docker Storage
 
   1. Use Volumes for Persistent Data – Volumes are more secure and optimized than bind mounts.

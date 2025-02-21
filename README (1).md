@@ -55,31 +55,31 @@ docker run --tmpfs /app/cache busybox
 #### Creating and Using a Docker Volume
 
   ##### Create a volume
-  `
+  ```
   bash 
   docker volume create myvolume 
-  `
+  ```
   ##### Run a container using the volume
-   `
+   ```
    bash
     docker run -d --name mycontainer -v myvolume:/data busybox 
-    `
+   ```
 
   #### Checking Volumes
-  ` 
+  ```
   bash 
   docker volume ls  # List all volumes
-  ` 
+  ``` 
 
-  `
+  ```
   bash 
   docker volume inspect myvolume  # Inspect volume details 
-  `
+  ```
   #### Removing a Volume
-  ` 
+  ```
   bash 
   docker volume rm myvolume 
-  `
+  ```
 
 ###   b. Bind Mounts
   - Maps a host directory to a container.
@@ -87,10 +87,10 @@ docker run --tmpfs /app/cache busybox
   - Changes in the host directory reflect inside the container in
     real-time
   #### Using Bind Mounts
-   `
+   ```
    bash 
    docker run -d -v /home/user/data:/app/data busybox
-   `
+   ```
 
 ###   c. Storage Drivers
   Storage drivers handle how container filesystems interact with   

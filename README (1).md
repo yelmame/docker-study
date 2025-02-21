@@ -32,9 +32,10 @@ Docker provides multiple storage drivers and options, allowing you to manage per
           container stops.
         Example of running a container with a tmpfs mount:
         
-`
+```
+bash
 docker run --tmpfs /app/cache busybox
-`
+```
 
 
 

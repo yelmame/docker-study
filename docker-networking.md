@@ -73,6 +73,11 @@ docker network create -d overlay my_overlay_network
 sh
 docker network ls
 ```
+### To take help with Network
+```
+docker network --help
+```
+
 ### Inspect a Network
 ```
 sh
@@ -94,3 +99,36 @@ docker network disconnect my_bridge_network container1
 sh
 docker network rm my_bridge_network
 ```
+To create a Network aws & create a container with in that network 
+```
+sh
+docker network create aws 
+docker network ls
+docker network inspect aws
+docker run -itd --name con2 --networks=aws ubuntu 
+docker ps -a
+docker inspect con2
+```
+To check which network has connected how many container 
+```
+sh
+docker network inspect <network_name>
+```
+After creation of container we can change network
+```
+sh
+docker network connect --help
+docker network connect aws con1
+docker network inspect con1 
+```
+To remove Network which is unused
+```
+sh
+docker network prune (delete all unused network)
+```
+ 
+
+
+
+
+

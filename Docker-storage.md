@@ -89,7 +89,7 @@ docker run --tmpfs /app/cache busybox
   #### Using Bind Mounts
    ```
    bash 
-   docker run -d -v /home/user/data:/app/data busybox
+   docker run -d --name com1 --mount source=vol1,target=/app nginx 
    ```
 
 ###   c. Storage Drivers

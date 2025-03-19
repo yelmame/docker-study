@@ -1,0 +1,8 @@
+# 1️⃣ Use Ubuntu as the base image
+FROM ubuntu:22.04
+
+# 2️⃣ Update package lists
+RUN apt update
+
+# 3️⃣ Set the default command to run `whoami`
+CMD ["whoami"]

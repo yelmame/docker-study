@@ -1,0 +1,14 @@
+# Use Red Hat Enterprise Linux 9 UBI (Universal Base Image)
+FROM registry.access.redhat.com/ubi9/httpd-24
+
+# Set the working directory
+WORKDIR /var/www/html
+
+# Copy website files
+COPY index.html /var/www/html/
+
+# Expose HTTP port
+EXPOSE 80
+
+# Start Apache HTTPD in the foreground
+CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]

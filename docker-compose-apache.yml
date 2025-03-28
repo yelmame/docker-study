@@ -1,0 +1,14 @@
+services:
+    apache:
+        image: httpd:latest
+        container_name: my-web-server
+        ports:
+          - "8080:80"
+        volumes:
+          - ./html:/usr/local/apache2/htdocs
+        networks:
+          - webnet
+
+
+networks:
+    webnet:

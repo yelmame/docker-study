@@ -1,0 +1,67 @@
+Running Container
+
+docker run -it centos
+# docker run -it --name os1 centos
+# docker run -itd --name container_name image_name
+# docker run -d --name com2 httpd
+
+environmaent variable 
+ 
+ docker run -it --name com3 -e Name=Rachana centos
+entered into the container
+pwd 
+env
+exit from container
+
+docker pull ubuntu 
+docker run -it --name com4 -e city=ahmedadbad -e class=docker ubuntu
+
+docker images 
+
+docker pull quay.io/centos/centos
+
+database container always required username & password
+
+create database container with 2 ways 
+
+docker run -d --name db1 -e MySQL_ROOT_PASSWORD=Grras@123 docker.io/MySQL 
+
+docker inspect db1 
+
+*********
+
+save & Load image for share  to others
+
+--nginx image 
+share image 
+-- save image in a tar file 
+--share it through any protocol 
+
+commands 
+#  docker pull nginx
+ # mkdir image
+cd image  
+ # docker save image id  -o image.tar 
+ll
+# use any protocol with ssh , mv 
+docker load -i image.tar 
+#exit 
+# docke rmi nginx
+#docker load -i image.tar 
+image will be created but no name (its called dangling image )
+# docker tag <image-id> <image-name>
+# docker tag image-id new_name
+docker login -u username 
+login succeded
+
+
+image Name Format  --> registry _name/udcoker /image_name:tag
+
+# docker tag a875812341a docker.io/rachanayelmame8/newimage:v1
+# docker images
+
+docker image push docker.io/rachanayelmame8/newimage:v1
+
+
+
+ 

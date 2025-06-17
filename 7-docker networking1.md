@@ -20,9 +20,12 @@ Key Insights
 🌍 Host Networking Dangers: Using host networking can simplify access but poses significant security risks. When containers share the same network as the host, they inherit potential vulnerabilities, allowing any user with host access to interact with all containers. This method should be used with caution and only when necessary.
 
 
+```bash
 
 docker port --all
-docker port container_name 
+
+docker port container_name
+```
 
 types of network
 base machine is windows i.e ip 192.168.1.0
@@ -34,29 +37,43 @@ base machine is windows i.e ip 192.168.1.0
 2> Host network
     base machine network ip address are obtained by host network 
       network will be 192.168.1.0
-
+```bash
 docker network ls 
- docker network --help 
+
+docker network --help 
+
 docker network create aws 
+
 sudo docker network create --driver <driver-name> <bridge-name>
 e.g 
+
 docker network create --driver bridge demo-network(name of nw) 
+
 docker network ls
+
 docker network inspect aws
+
 docker network create --driver "bridge" --subnet=30.0.0.0/16 net1
 
 
 docker run -itd --name con2 --network=aws ubuntu 
+
 docker ps -a
+
 docker inspect con2
+
 to check which network has connected how many container 
+
 docker network inspect <network_name>
 
 after creation of container we can change network 
 
 docker network connect --help
+
 docker network connect aws con1
+
 sudo docker network connect <network-name> <container-name or id>
+
 docker network inspect con1 
 
 disconnect network from container

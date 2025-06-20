@@ -83,3 +83,10 @@ disconnect network from container
 docker network rm aws
  docker network prune (delete all unused network)
 docker network 
+
+To run  container & connect to host network
+docker run -d --name web1 --network=host httpd
+docker exec -it web1 bash
+check index.html from doccument root
+access it from docker host machine it will show container web page
+http://localhost

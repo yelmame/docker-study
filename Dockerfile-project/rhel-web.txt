@@ -10,5 +10,3 @@ COPY index.html /var/www/html/
 # Expose HTTP port
 EXPOSE 80
 
-# Start Apache HTTPD in the foreground
-CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]

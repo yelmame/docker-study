@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>3 Tier App</title>
+</head>
+<body>
+  <h1>Items</h1>
+  <ul id="item-list"></ul>
+  <script>
+    fetch("http://localhost:5000/items")
+      .then(res => res.json())
+      .then(data => {
+        const list = document.getElementById("item-list");
+        data.forEach(item => {
+          const li = document.createElement("li");
+          li.textContent = JSON.stringify(item);
+          list.appendChild(li);
+        });
+      });
+  </script>
+</body>
+</html>

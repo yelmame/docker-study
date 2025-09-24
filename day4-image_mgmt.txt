@@ -30,38 +30,31 @@ docker inspect db1
 
 *********
 
-save & Load image for share  to others
-
---nginx image 
-share image 
--- save image in a tar file 
---share it through any protocol 
-
-commands 
-#  docker pull nginx
- # mkdir image
-cd image  
- # docker save image id  -o image.tar 
-ll
-# use any protocol with ssh , mv 
-docker load -i image.tar 
-#exit 
-# docke rmi nginx
-#docker load -i image.tar 
-image will be created but no name (its called dangling image )
+TO create image from container and push to repository 
+docker pull nginx
+docker images
+docker run -itd --name web1 nginx 
+container is updated with following changes
+docker exec -it web1 bash
+cat "hello " >> /usr/share/nginx/index.html
+docker commit method we create image from container 
+docker commit container-id nginx-new
+save the image to file 
+docker save-o nginx-new.tar nginx-new.latest
+load the image 
+docker load -i nginx-new.tar 
+this will be created but no name (its called dangling image )
 # docker tag <image-id> <image-name>
-# docker tag image-id new_name
+# docker tag image-id nginx-new.tar
 docker login -u username 
 login succeded
 
 
 image Name Format  --> registry _name/udcoker /image_name:tag
 
-# docker tag a875812341a docker.io/rachanayelmame8/newimage:v1
+# docker tag a875812341a docker.io/rachanayelmame8/nginx-new:v1
 # docker images
 
-docker image push docker.io/rachanayelmame8/newimage:v1
+docker image push docker.io/rachanayelmame8/nginx-new:v1
 
 
-
- 

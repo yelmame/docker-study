@@ -1,0 +1,14 @@
+docker build -t python-app .
+vi Dockerfile 
+docker build -t python-app .
+docker run -dit --name python-app1 python-app:latest 
+docker ps
+docker ps a
+docker ps -a
+docker start python-app1
+docker ps -a
+docker ps 
+docker exec -it python-app1 bash
+docker rm -f python-app1
+docker rm -f python-app
+docker run -dit -p 8000:8000 --name python-app1 python-app:latest 

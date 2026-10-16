@@ -7,7 +7,6 @@ vi docker-compose.yaml
 version: '3.8'
 
 services:
-
   mysql:
   
     image: mysql:8.0
@@ -34,7 +33,6 @@ services:
     
       - mysql_data:/var/lib/mysql
 volumes:
-
   mysql_data:
   
 

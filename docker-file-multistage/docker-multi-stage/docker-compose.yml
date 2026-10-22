@@ -17,7 +17,7 @@ services:
     ports:
       - "5000:5000"
     env_file:
-      - ./backend/.env.sample
+      - ./backend/env.sample
     depends_on:
       - mongodb
 
